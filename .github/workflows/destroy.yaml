@@ -1,0 +1,34 @@
+name: destroy-infra
+run-name: ${{ github.workflow }}
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_name:
+        description: "Specify deployment name"
+        required: true
+        type: string
+
+jobs:
+  approve:
+    name: Approve infrastructure teardown
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manual Workflow Approval
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: christosgalano
+          minimum-approvals: 1
+          issue-title: "Destroying infrastructure"
+          exclude-workflow-initiator-as-approver: false
+
+  call-azure-destroy-workflow:
+    uses: christosgalano/Workflow-Templates/.github/workflows/azure_destroy.yaml@main
+    needs: approve
+    with:
+      deployment_name: ${{ inputs.deployment_name }}
+      enable_harder_runner: false
+    secrets:
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}

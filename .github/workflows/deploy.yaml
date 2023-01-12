@@ -1,0 +1,21 @@
+name: deploy-infra
+run-name: ${{ github.workflow }}
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_name:
+        description: "Specify deployment name"
+        required: true
+        type: string
+
+jobs:
+  call-azure-deploy-workflow:
+    uses: christosgalano/Workflow-Templates/.github/workflows/azure_deploy.yaml@main
+    with:
+      template_dir: bicep
+      template_prefix: azure.deploy
+      location: westeurope
+      deployment_name: ${{ inputs.deployment_name }}
+      enable_harder_runner: false
+    secrets:
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
