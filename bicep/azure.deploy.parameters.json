@@ -12,11 +12,12 @@
       "value": ""
     },
     "environment": {
-      "value": "dev"
+      "value": ""
     },
     "rg_tags": {
       "value": {
-        "owner": "christosgalano"
+        "owner": "",
+        "cost-center": ""
       }
     }
   }

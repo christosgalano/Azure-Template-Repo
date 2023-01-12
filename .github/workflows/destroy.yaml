@@ -19,8 +19,8 @@ jobs:
         uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.TOKEN }}
-          approvers: christosgalano
-          minimum-approvals: 1
+          approvers: user1,user2
+          minimum-approvals: N
           issue-title: "Destroying infrastructure"
           exclude-workflow-initiator-as-approver: false
 
