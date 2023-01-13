@@ -13,3 +13,4 @@ jobs:
       template_dir: bicep
       template_prefix: azure.deploy
       enable_harder_runner: false
+
