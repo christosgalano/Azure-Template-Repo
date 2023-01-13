@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
-      "value": "westeurope"
+      "value": ""
     },
     "location_abbreviation": {
-      "value": "weu"
+      "value": ""
     },
     "workload": {
       "value": ""
