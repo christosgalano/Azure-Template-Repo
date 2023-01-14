@@ -1,10 +1,6 @@
 # Azure-Template-Repo
 
-<div align="center">
-    <a href="https://github.com/christosgalano/Azure-Template-Repo/generate">
-        <img src="https://img.shields.io/badge/Use_this_template-Generate-2ea44f?style=for-the-badge" alt="Use this template">
-    </a>
-</div>
+## General
 
 Template repository for bicep-related Azure projects.
 
